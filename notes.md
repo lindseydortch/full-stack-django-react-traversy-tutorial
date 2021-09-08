@@ -17,3 +17,13 @@
 - With the rest_framework we run the serializer
 - Create a `serializers.py` in your leads folder 
   - See page for part 1 branch for this one 
+- Then create a `api.py` file in your leads folder 
+  - Lead viewset, allows us to create a full CRUD API without having to specify the different methods 
+  - We can use the defaultRouter and register an endpoint 
+  - See in part 1 branch for this one 
+- Then go into your urls.py in your leadmanager 
+  - See update in part 1 branch 
+- Then create a urls.py in your leads folder 
+  - See in part 1 branch 
+- Then you can run your server 
+- Run in postman and you have full CRUDability 
