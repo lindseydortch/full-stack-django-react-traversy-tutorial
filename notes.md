@@ -60,3 +60,27 @@
   - In the `./leadmanager/frontend/src/components/` and make a diretory called layout and a file called `Header.js` -> use rce to make a class based component -> add in compoenent to App.js
   - If you want to see changes, you have to run `npm run dev`, we can add a watch option to avoid doing this 
   - In your `./leadmanager/frontend/src/components/` folder make a directory called `leads` add these files `Dashbord.js - use rcf for this compoenent` `Form.js` `Leads.js`
+
+## Redux & HTTP 
+- Download Reducx Dev Tools on Chrome 
+- Redux is completely separate from Redux
+- To start run `npm i redux react-redux redux-thunk redux-devtools-extension` in your terminal
+- The first thing you want to do is create your store file, this goes in your `./leadmanager/frontend/src/` folder, create a store.js
+- Then to create your reducer you make a new directory called `reducers` in `./leadmanager/frontend/src/` and create an `index.js` in that folder
+  - Then we want to bring in our store and reducers to our App.js in components
+- Then we create a new reducer in `./leadmanager/frontend/src/reducers` called `leads.js`
+  - Reducers - basically a function that takes in an action and evaluates and sends down certain state based on what that action does 
+    - We define these with types 
+- Create a folder in `./leadmanager/frontend/src/` called actions and then create a file called `types.js`
+  - Types are basically constants that hold a string 
+- Install axios in your terminal 
+- In your `./leadmanager/frontend/src/` folder create a file called `leads.js`
+  - Any actions we want to fire off go in here 
+  - We'll be using something called dispatch to help with our server calls -> use whenever we dispatch an action to our reducer
+  - In order to use redux, you need to us connect 
+- Next, go into your `Leads.js` in your `./leadmanager/frontend/src/components/leads`
+- Add Lead form
+  - Go into your `Form.js` compoenent, we will need to add state `./leadmanager/frontend/src/components/leads`
+  - Then go to `./leadmanager/frontend/src/actions` and edit your `leads.js` and `types.js` 
+  - Then go to your `leads.js` in `./leadmanager/frontend/src/reducers`
+  - Then go to your `Form.js` in  `./leadmanager/frontend/src/components/leads`
