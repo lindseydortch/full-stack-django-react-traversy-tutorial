@@ -84,3 +84,23 @@
   - Then go to `./leadmanager/frontend/src/actions` and edit your `leads.js` and `types.js` 
   - Then go to your `leads.js` in `./leadmanager/frontend/src/reducers`
   - Then go to your `Form.js` in  `./leadmanager/frontend/src/components/leads`
+
+## Error Handling & Alerts 
+- We are going to create an alerts component to show any errors when user submits a form, we will be using react-alerts 
+  - Go into your terminal and install `npm i react-alert react-alert-template-basic react-transition-group`
+  - Go into your `App.js` and add in the Provider
+  - In `./leadmanager/frontend/src/components/layout/` create a new file called `Alerts.js` use rce 
+  - Go back to your `App.js` and bring in the alerts 
+- In `./leadmanager/frontend/src/reducers` create a new file called `errors.js` and we need to bring it into our `index.js`
+  - We will also bring it into our `./leadmanager/frontend/src/actions` file in the `types.js`
+  - Then go into your `leads.js` in `./leadmanager/frontend/src/actions` 
+  - Then go into your `Alerts.js` and connect 
+- Creating a messages reducer 
+  - Go to `./leadmanager/frontend/src/reducers` and create a file called `messages.js` and you can basically copy what you have in your `errors.js`
+  - Now we have to add this to our root reducer - `index.js` in the `./leadmanager/frontend/src/reducers`
+  - In `./leadmanager/frontend/src/actions` create a new file called `messages.js`
+  - Then go into your `leads.js` in `./leadmanager/frontend/src/actions`
+  - Then go into your `Alerts.js`
+
+## Django Token Authentication 
+- 
