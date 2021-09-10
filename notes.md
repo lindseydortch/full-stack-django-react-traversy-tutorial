@@ -140,3 +140,29 @@
   - Add this `path('/api/auth/logout', lnox_views.LogoutView.as_view(), name='knox_logout')` to your `urls.py` in `./leadmanager/accounts/` 
   - Once a user logs out, it invalidates that token 
   - When you just clear from local storage on the frontend, it's not truly logging out, you can still have that token in the backend 
+
+## Auth State & Private Routes 
+- First we're going to run `npm i react-router-dom` and then you can `npm run dev again`
+- Then you're going to go into your `App.js` in `./leadmanager/frontend/src/components/`
+  - Import this into your `App.js` `import { HashRouter as Router, Route, Switch, Redirect } from 'react-router-dom'`
+  - We want to use HashRouter vs. BrowserRouter since our frontend is in our backend 
+  - We also need to wrap our App in a <Router> before the <Fragement>
+  - We want to surround all of our routes with Switch because we will run into issues when we create our private routes later 
+- In your `./leadmanager/frontend/src/components/` folder create a folder called accounts 
+  - Inside of accounts create a file called `Login.js` and `Register.js`
+  - Start in `Register.js` and create an rce compoenent 
+  - Then go to your `Login.js` 
+  - Then import the files you created in the accounts folder to your `App.js`
+  - Then add links to your `Header.js` in the `./leadmanager/frontend/src/components/layout` directory, so you can route to them  
+- Next we need to add a login reducer 
+  - Create a file called `auth.js` in `./leadmanager/frontend/src/reducers/`
+  - Then go to your `index.js` in `./leadmanager/frontend/src/reducers/` 
+  - Then go back to your `auth.js` in `./leadmanager/frontend/src/reducers/`
+  - Next we want to create a private route, so we go to `./leadmanager/frontend/src/components/` and create a new folder called common (anything that doesn't fit into these categories) and create a file called `PrivateRoute.js`-> create a functional compoenent
+  - Then bring this new compoenent into your `App.js`
+- Now we need to constantly chck if this user is logged in, every time the `App.js` 
+  - First we need to go into `types.js` in `./leadmanager/frontend/src/actions`
+  - And then go back into `auth.js` in `./leadmanager/frontend/src/reducers/`
+  - Now in our `./leadmanager/frontend/src/actions` folder create a file called `auth.js`
+  - Go back into your `App.js` and bring in the action 
+  - 
