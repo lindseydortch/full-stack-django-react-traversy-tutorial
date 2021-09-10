@@ -103,4 +103,40 @@
   - Then go into your `Alerts.js`
 
 ## Django Token Authentication 
-- 
+- This is where we get into authentication 
+- We want to be able to authenticate, and see the leads if we don't have a token, we have to go back to the backend for this 
+- Go to your `models.py` in`./leadmanager/leads` and we want to bring the user model that comes default with Django 
+  - Bring this in `from django.contrib.auth.models import User`
+    - Add this under messages `owner= models.ForeignKey(User, related_name='leads', on_delete=models.CASCADE, null=True)`
+  - Stop your server and then cd into leadmanager/
+  - Run `python manage.py makemigrations` in your terminal and then run `python manage.py migrate`
+- Authentication 
+  - Go into your `api.py` in your `./leadmanager/leads/` and change your permissions and your queryset 
+  - To handle errors go to `leads.js` in `./leadmanager/frontend/src/actions` 
+  - Then go into your `messages.js` in `./leadmanager/frontend/src/actions` 
+- To authenticate we need to create a registration API to register a user and then once we register a user and create a login API and then when we login, we get a token 
+  - We will be using Django Rest Knox, we have to add this to our settings and add in a REST_FRAMEWORK that knows we want to use knox - after this we need to run `python manage.py migrate`
+  - We need to think about how to create our serializers before creating a user and logging in - we will need to create a brand new app for that 
+    - Create a new app in Django for `accounts` using `python manage.py startapp accounts` in your terminal and then add your new app to your settings.py
+    - Then create a file in your `./leadmanager/accounts/` directory called `serializers.py`
+      - We're going to focus on registration first 
+      - Django already does the auth for us, we're just using knox to create our tokens 
+      - Now we need to create an `api.py` file in `./leadmanager/accounts/`
+      - After this we need to create an endpoint, so we need to create another `urls.py` in `./leadmanager/accounts/`
+      - We have to include our new urls in the `urls.py` in the leadmanager, `./leadmanager/leadmanager/`
+      - Then try to register a user with postman 
+- Now we want to be able to login 
+  - Go back to your `serializers.py` in `./leadmanager/accounts/`
+    - We won't use a model for this, we're just using the login to see if everything passes 
+    - Then we go back into our `api.py` in `./leadmanager/accounts/`
+    - Then we go back to our `urls.py` in `./leadmanager/accounts/`
+    - Then do a post request to login on postman 
+- Get User API 
+  - Go to your `api.py` in `./leadmanager/accounts/`
+  - Then go back to `urls.py` in `./leadmanager/accounts/` to give our API an endpoint
+  - To access in postman we have to put a header with a key called `Authorization` and then the value as `Token userToken` <- will be a number 
+- Creating a logout
+  - There's a view we can bring into our urls, we just add the path 
+  - Add this `path('/api/auth/logout', lnox_views.LogoutView.as_view(), name='knox_logout')` to your `urls.py` in `./leadmanager/accounts/` 
+  - Once a user logs out, it invalidates that token 
+  - When you just clear from local storage on the frontend, it's not truly logging out, you can still have that token in the backend 
