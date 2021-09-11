@@ -165,4 +165,31 @@
   - And then go back into `auth.js` in `./leadmanager/frontend/src/reducers/`
   - Now in our `./leadmanager/frontend/src/actions` folder create a file called `auth.js`
   - Go back into your `App.js` and bring in the action 
-  - 
+
+## Frontend Authentication 
+- First we need to go into `types.js` in `./leadmanager/frontend/src/actions`
+  - Then go back to your `auth.js` in `./leadmanager/frontend/src/actions`
+  - Now go back into your `auth.js` in `./leadmanager/frontend/src/reducers/`
+- Now we need a way to call our function, we need to connect it to the Login component 
+  - Go to your `Login.js` in your `./leadmanager/frontend/src/components/accounts`
+- Logout function 
+  - Go to your `Header.js` in `./leadmanager/frontend/src/components/layout`
+  - Adding functionality to our logout 
+    - Go into `types.js` in `./leadmanager/frontend/src/actions`
+    - Go to `auth.js` in `./leadmanager/frontend/src/actions`
+    - Now go to `auth.js` in `./leadmanager/frontend/src/reducers/`
+    - Now we need to bring that action in, so we need to go to `Header.js` in `./leadmanager/frontend/src/components/layout`
+- Handling Login Errors 
+  - Go into your `Alerts.js` in `./leadmanager/frontend/src/components/layout`
+- Welcome message for user in navbar 
+  - Go to your `Header.js` in `./leadmanager/frontend/src/components/layout`
+- Cleaning up our code 
+  - First we're going to clean up our `auth.js` in `./leadmanager/frontend/src/actions`
+- Registration 
+  - Go into `types.js` in `./leadmanager/frontend/src/actions`
+  - Go to `auth.js` in `./leadmanager/frontend/src/actions`
+  - Now go to `auth.js` in `./leadmanager/frontend/src/reducers/`
+  - Now go into your `Register.js` in `./leadmanager/frontend/src/components/accounts/`
+  - We also want to add in alerts, so go to your `Alerts.js` in `./leadmanager/frontend/src/components/layout`
+- Send our token to the leads endpoints in order to load them and in order to add them 
+  - Go to `leads.js` in `./leadmanager/frontend/src/actions`
